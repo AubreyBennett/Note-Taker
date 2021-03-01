@@ -22,5 +22,10 @@ app.get('*', (req, res) => res.sendFile(path.join(__dirname, '../public/index.ht
 // GET API's
 app.get('/api/notes', (req, res) => res.json(notes));
 
+app.post('/api/notes', (req, res) => {
+    let newNote = req.body;
+    notes.push(newNote);
+});
+
 // Starts the server to begin listening
 app.listen(PORT, () => console.log(`App listening on PORT ${PORT}`));
